@@ -455,10 +455,10 @@ const DMD_CONTACTO = {
 // del administrador y para guardar/mostrar las fotos que suba. Mientras
 // diga "TU_...", esa función queda desactivada sin romper el resto.
 const FIREBASE_CONFIG = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_PROYECTO.firebaseapp.com",
-  projectId: "TU_PROYECTO",
-  storageBucket: "TU_PROYECTO.appspot.com",
-  messagingSenderId: "TU_SENDER_ID",
-  appId: "TU_APP_ID"
+  apiKey: "AIzaSyBhfvYx2pIzphbyDH4k5uMil5txa_e0b_M",
+  authDomain: "dmd-tausa.firebaseapp.com",
+  projectId: "dmd-tausa",
+  storageBucket: "dmd-tausa.firebasestorage.app",
+  messagingSenderId: "744479460410",
+  appId: "1:744479460410:web:97511f65db0f56e82b7903"
 };

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Resumen de reseñas — DMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body{ background:#F4F7FA; color:#12202E; font-family:'Space Grotesk',sans-serif; height:auto; }
+  .wrap{ max-width:1000px; margin:0 auto; padding:28px 18px 60px; }
+  .top{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+  h1{ font-size:26px; margin:0; }
+  .sub{ color:#6B7A8A; font-size:13.5px; margin:4px 0 22px; }
+  .btns{ display:flex; gap:8px; }
+  .btns a, .btns button{ background:#00C2A8; color:#04211C; border:none; border-radius:9px; padding:10px 16px; font-weight:700; font-size:13px; cursor:pointer; text-decoration:none; font-family:inherit; }
+  .btns a{ background:transparent; border:1px solid #C9D3DD; color:#25313E; }
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:24px; }
+  .card{ background:#fff; border:1px solid #E4E9EF; border-radius:12px; padding:16px; }
+  .card .n{ font-size:30px; font-weight:800; line-height:1; }
+  .card .l{ font-size:12px; color:#6B7A8A; margin-top:6px; }
+  .good{ color:#0E9F6E; } .mid{ color:#D68A00; } .bad{ color:#D64545; }
+  .tablewrap{ background:#fff; border:1px solid #E4E9EF; border-radius:12px; overflow-x:auto; }
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; min-width:760px; }
+  th{ text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.7px; color:#6B7A8A; padding:12px 14px; border-bottom:1px solid #E4E9EF; }
+  td{ padding:12px 14px; border-bottom:1px solid #EEF1F5; vertical-align:middle; }
+  tr:last-child td{ border-bottom:none; }
+  .tipo{ font-size:11.5px; color:#6B7A8A; }
+  .stars{ color:#FFB020; letter-spacing:1px; }
+  .bar{ display:flex; height:10px; border-radius:6px; overflow:hidden; background:#E4E9EF; min-width:120px; }
+  .bar i{ display:block; height:100%; }
+  .bar .g{ background:#0E9F6E; } .bar .m{ background:#F2B01E; } .bar .b{ background:#D64545; }
+  .note{ font-size:12px; color:#6B7A8A; margin-top:16px; line-height:1.6; }
+  #estado{ font-size:13.5px; color:#6B7A8A; margin:14px 0; }
+  .aviso{ background:#FFF4E0; border:1px solid #F2D49B; color:#7A5200; padding:12px 14px; border-radius:10px; font-size:13px; margin-bottom:16px; }
+  @media print{
+    body{ background:#fff; }
+    .btns{ display:none; }
+    .wrap{ padding:0; }
+    .card, .tablewrap{ border-color:#ccc; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>Resumen de reseñas</h1>
+    <div class="btns">
+      <a href="index.html">← Inicio</a>
+      <button onclick="window.print()">Imprimir / guardar PDF</button>
+    </div>
+  </div>
+  <p class="sub">DMD — Directorio Mapa Digital, Tausa · Datos en vivo desde la base de datos</p>
+
+  <div id="aviso"></div>
+  <div id="estado">Cargando reseñas…</div>
+  <div class="cards" id="cards"></div>
+  <div class="tablewrap"><table>
+    <thead><tr>
+      <th>Nombre</th><th>Reseñas</th><th>Promedio</th>
+      <th>Buenas (4–5★)</th><th>Regulares (3★)</th><th>Malas (1–2★)</th><th>Distribución</th>
+    </tr></thead>
+    <tbody id="filas"></tbody>
+  </table></div>
+  <p class="note">Criterio: <strong>buenas</strong> = 4 y 5 estrellas, <strong>regulares</strong> = 3 estrellas, <strong>malas</strong> = 1 y 2 estrellas. Los porcentajes se calculan sobre el total de reseñas de cada fila y se redondean al entero más cercano.</p>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="site-data.js"></script>
+<script>
+(function(){
+  function esc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+  function pct(x,n){ return n ? Math.round(x*100/n) : 0; }
+  function stars(avg){ var r=Math.round(avg), t=''; for(var i=1;i<=5;i++) t+= i<=r?'★':'☆'; return t; }
+
+  var db=null;
+  try{
+    if(FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey.indexOf('TU_')!==0){
+      firebase.initializeApp(FIREBASE_CONFIG);
+      db=firebase.firestore();
+    }
+  }catch(e){ console.warn(e); }
+
+  if(!db){
+    document.getElementById('estado').textContent='';
+    document.getElementById('aviso').innerHTML='<div class="aviso">Firebase todavía no está configurado en <strong>site-data.js</strong>, por eso no hay datos para mostrar.</div>';
+    return;
+  }
+
+  var filas=[];
+  PLACES.forEach(function(p){ filas.push({ nombre:p.name, tipo:'Lugar', key:p.slug }); });
+  if(typeof HOTELS!=='undefined') HOTELS.forEach(function(h){ filas.push({ nombre:h.name, tipo:'Hotel', key:'hotel-'+h.slug }); });
+  filas.push({ nombre:'Experiencia con la página DMD', tipo:'Página', key:'experiencia-dmd' });
+
+  Promise.all(filas.map(function(f){
+    return db.collection('reviews').doc(f.key).get().then(function(doc){
+      f.items=(doc.exists && doc.data().items) || [];
+    }).catch(function(err){
+      console.warn('No se pudo leer', f.key, err);
+      f.items=[]; f.error=true;
+    });
+  })).then(render);
+
+  function render(){
+    var tot={n:0,sum:0,b:0,r:0,m:0}, hayError=false;
+    var html=filas.map(function(f){
+      var n=f.items.length, sum=0, b=0, r=0, m=0;
+      f.items.forEach(function(i){ sum+=i.stars; if(i.stars>=4) b++; else if(i.stars===3) r++; else m++; });
+      tot.n+=n; tot.sum+=sum; tot.b+=b; tot.r+=r; tot.m+=m;
+      if(f.error) hayError=true;
+      var avg=n?sum/n:0;
+      var pb=pct(b,n), pr=pct(r,n), pm=pct(m,n);
+      return '<tr>'+
+        '<td><strong>'+esc(f.nombre)+'</strong><div class="tipo">'+f.tipo+'</div></td>'+
+        '<td>'+n+'</td>'+
+        '<td>'+(n?'<strong>'+avg.toFixed(1)+'</strong> <span class="stars">'+stars(avg)+'</span>':'—')+'</td>'+
+        '<td class="good">'+(n?pb+'% <span class="tipo">('+b+')</span>':'—')+'</td>'+
+        '<td class="mid">'+(n?pr+'% <span class="tipo">('+r+')</span>':'—')+'</td>'+
+        '<td class="bad">'+(n?pm+'% <span class="tipo">('+m+')</span>':'—')+'</td>'+
+        '<td>'+(n?'<div class="bar"><i class="g" style="width:'+(b*100/n)+'%"></i><i class="m" style="width:'+(r*100/n)+'%"></i><i class="b" style="width:'+(m*100/n)+'%"></i></div>':'<span class="tipo">Sin reseñas</span>')+'</td>'+
+      '</tr>';
+    }).join('');
+    document.getElementById('filas').innerHTML=html;
+
+    document.getElementById('cards').innerHTML=
+      '<div class="card"><div class="n">'+tot.n+'</div><div class="l">Reseñas en total</div></div>'+
+      '<div class="card"><div class="n">'+(tot.n?(tot.sum/tot.n).toFixed(1):'—')+'</div><div class="l">Promedio general (de 5)</div></div>'+
+      '<div class="card"><div class="n good">'+pct(tot.b,tot.n)+'%</div><div class="l">Buenas (4–5★)</div></div>'+
+      '<div class="card"><div class="n mid">'+pct(tot.r,tot.n)+'%</div><div class="l">Regulares (3★)</div></div>'+
+      '<div class="card"><div class="n bad">'+pct(tot.m,tot.n)+'%</div><div class="l">Malas (1–2★)</div></div>';
+
+    document.getElementById('estado').textContent='Actualizado: '+new Date().toLocaleString('es-CO');
+    if(hayError){
+      document.getElementById('aviso').innerHTML='<div class="aviso">Algunas filas no se pudieron leer. Revisa que las reglas de Firestore permitan leer la colección <strong>reviews</strong>.</div>';
+    }
+  }
+})();
+</script>
+</body>
+</html>
