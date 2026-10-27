@@ -13,10 +13,10 @@
 //
 //  Cada vez que cambies el sitio y quieras que la app instalada reciba
 //  la actualización, sube el número de CACHE_NAME (por ejemplo, de
-//  'dmd-v1' a 'dmd-v2'). Así el navegador sabe que debe descargar la
+//  'dmd-v1' a 'dmd-v4'). Así el navegador sabe que debe descargar la
 //  versión nueva en vez de seguir usando la vieja guardada.
 // =====================================================================
-const CACHE_NAME = 'dmd-v3';
+const CACHE_NAME = 'dmd-v4';
 
 const CORE_FILES = [
   './index.html',
@@ -30,6 +30,7 @@ const CORE_FILES = [
   './share.js',
   './assistant.js',
   './reviews.js',
+  './install.js',
   './manifest.json',
   './logo-dmd.png',
   './icons/icon-192.png',
