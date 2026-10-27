@@ -16,7 +16,7 @@
 //  'dmd-v1' a 'dmd-v2'). Así el navegador sabe que debe descargar la
 //  versión nueva en vez de seguir usando la vieja guardada.
 // =====================================================================
-const CACHE_NAME = 'dmd-v2';
+const CACHE_NAME = 'dmd-v3';
 
 const CORE_FILES = [
   './index.html',
