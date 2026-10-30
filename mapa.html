@@ -685,7 +685,11 @@
           resultsEl.appendChild(li);
         });
       })
-      .catch(()=>{ statusEl.textContent = 'Error al buscar. Intenta de nuevo.'; });
+      .catch(()=>{
+        statusEl.textContent = navigator.onLine
+          ? 'Error al buscar. Intenta de nuevo.'
+          : 'Sin conexión: buscar direcciones necesita internet. Puedes elegir uno de los lugares de DMD en el mapa.';
+      });
   });
 
   // ---------- selección por clic en el mapa ----------
@@ -758,8 +762,18 @@
       const mins = route.duration / 60;
       timeVal.textContent = mins < 60 ? Math.round(mins) + ' min' : (mins/60).toFixed(1) + ' h';
     }).catch(()=>{
-      distVal.textContent = '—'; timeVal.textContent = '—';
-      statusEl.textContent = 'Error al calcular la ruta. Intenta de nuevo.';
+      // sin internet (o el servicio de rutas no responde): línea recta, que sí se calcula sin conexión
+      if(!myPos || !destMarker) return;
+      const dd = destMarker.getLatLng();
+      if(routeLine){ map.removeLayer(routeLine); }
+      routeLine = L.polyline([[myPos.lat, myPos.lng], [dd.lat, dd.lng]], { color: getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(), weight:4, opacity:0.85, dashArray:'8 10' }).addTo(map);
+      if(routeNeedsFit){ map.fitBounds(routeLine.getBounds(), { padding:[60,60] }); routeNeedsFit = false; }
+      lastRouteFixPos = { lat: myPos.lat, lng: myPos.lng };
+      lastRouteCalcTime = Date.now();
+      const m = distMeters(myPos.lat, myPos.lng, dd.lat, dd.lng);
+      distVal.textContent = m < 1000 ? Math.round(m) + ' m' : (m/1000).toFixed(1) + ' km';
+      timeVal.textContent = '—';
+      statusEl.textContent = 'Sin conexión: te muestro la línea recta hasta el destino (distancia aproximada). La ruta por carreteras necesita internet.';
     });
   }
 
@@ -807,6 +821,15 @@
     <button id="assistantSend">➤</button>
   </div>
 </div>
+<div id="offlineBadge" style="display:none;position:fixed;top:64px;left:50%;transform:translateX(-50%);z-index:3500;background:#FFB020;color:#3A2600;font:600 12.5px 'Space Grotesk',sans-serif;padding:7px 14px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.35);white-space:nowrap;">📡 Sin conexión · mostrando lo guardado</div>
+<script>
+  (function(){
+    var b = document.getElementById('offlineBadge');
+    function u(){ b.style.display = navigator.onLine ? 'none' : 'block'; }
+    window.addEventListener('online', u); window.addEventListener('offline', u); u();
+  })();
+</script>
+<script src="stats.js"></script>
 <script src="assistant.js"></script>
 <script>
   if('serviceWorker' in navigator){

@@ -31,6 +31,7 @@
   .bar{ display:flex; height:10px; border-radius:6px; overflow:hidden; background:#E4E9EF; min-width:120px; }
   .bar i{ display:block; height:100%; }
   .bar .g{ background:#0E9F6E; } .bar .m{ background:#F2B01E; } .bar .b{ background:#D64545; }
+  .h2{ font-size:16px; margin:22px 0 10px; }
   .note{ font-size:12px; color:#6B7A8A; margin-top:16px; line-height:1.6; }
   #estado{ font-size:13.5px; color:#6B7A8A; margin:14px 0; }
   .aviso{ background:#FFF4E0; border:1px solid #F2D49B; color:#7A5200; padding:12px 14px; border-radius:10px; font-size:13px; margin-bottom:16px; }
@@ -55,6 +56,10 @@
 
   <div id="aviso"></div>
   <div id="estado">Cargando reseñas…</div>
+  <h2 class="h2">Visitas y app</h2>
+  <div class="cards" id="statscards"></div>
+  <p class="note" style="margin:-8px 0 22px">Cada dispositivo cuenta una vez por día. «Instalaciones detectadas» solo registra las que avisa Chrome/Android; en iPhone la app se cuenta cuando se abre por primera vez («Dispositivos con la app»). Tus propias pruebas también suman.</p>
+  <h2 class="h2">Reseñas</h2>
   <div class="cards" id="cards"></div>
   <div class="tablewrap"><table>
     <thead><tr>
@@ -88,6 +93,25 @@
     document.getElementById('aviso').innerHTML='<div class="aviso">Firebase todavía no está configurado en <strong>site-data.js</strong>, por eso no hay datos para mostrar.</div>';
     return;
   }
+
+  function leer(id){
+    return db.collection('stats').doc(id).get().then(function(d){ return d.exists ? (d.data().count||0) : 0; }).catch(function(){ return null; });
+  }
+  function dia(atras){ var d=new Date(); d.setDate(d.getDate()-atras); return d.toLocaleDateString('en-CA'); }
+  (function cargarStats(){
+    var ids=['visitas','instalaciones','dispositivos-app'], i;
+    for(i=0;i<7;i++) ids.push('visitas-'+dia(i));
+    Promise.all(ids.map(leer)).then(function(v){
+      var sem=0; for(i=3;i<10;i++) sem+=(v[i]||0);
+      function n(x){ return x===null?'—':x; }
+      document.getElementById('statscards').innerHTML=
+        '<div class="card"><div class="n">'+n(v[0])+'</div><div class="l">Visitas en total</div></div>'+
+        '<div class="card"><div class="n">'+n(v[3])+'</div><div class="l">Visitas hoy</div></div>'+
+        '<div class="card"><div class="n">'+sem+'</div><div class="l">Visitas, últimos 7 días</div></div>'+
+        '<div class="card"><div class="n">'+n(v[2])+'</div><div class="l">Dispositivos con la app</div></div>'+
+        '<div class="card"><div class="n">'+n(v[1])+'</div><div class="l">Instalaciones detectadas</div></div>';
+    });
+  })();
 
   var filas=[];
   PLACES.forEach(function(p){ filas.push({ nombre:p.name, tipo:'Lugar', key:p.slug }); });
