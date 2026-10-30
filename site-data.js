@@ -270,39 +270,48 @@ const HOTELS = [
     comoLlegar: 'Desde Bogotá: 54 km desde el peaje del norte. Desde el embarcadero del Parque del Neusa son aproximadamente 6,5 km por la carretera hacia Tausa. Fuga recomienda buscar "Fuga Neusa" en Google Maps o Waze.',
     descripcion: 'Fuga es un Cabin Retreat ubicado frente al Embalse del Neusa. Su propuesta está enfocada en descansar, desconectarse y reconectar con la naturaleza, rodeado de bosque altoandino, frailejones, montaña y niebla. Cuenta con 9 habitaciones y espacios diseñados para disfrutar del paisaje y la tranquilidad.',
     mapsQuery: 'Fuga Neusa',
-    photos: [],
+    desc: 'Cabin Retreat frente al Embalse del Neusa: 9 habitaciones, restaurante de temporada y experiencias al aire libre.',
+    lat: 5.1695066, lng: -73.9970012,
+    photos: [
+      'fotos/fuga-hotel-embalse-del-neusa/fuga-01-embalse.jpg',
+      'fotos/fuga-hotel-embalse-del-neusa/fuga-02-bicicletas.jpg',
+      'fotos/fuga-hotel-embalse-del-neusa/fuga-03-ceremonia.jpg',
+      'fotos/fuga-hotel-embalse-del-neusa/fuga-04-salon.jpg',
+      'fotos/fuga-hotel-embalse-del-neusa/fuga-05-evento.jpg'
+    ],
+    fotosCredito: 'Fuga',
     photoSlotsLabels: ['Exterior / cabañas', 'Habitaciones', 'Restaurante', 'Experiencias', 'Eventos', 'Vista al embalse'],
     habitaciones: [
       { nombre: 'Standard', capacidad: 'Hasta 3 personas', nota: '' },
       { nombre: 'Petit Suite', capacidad: 'Hasta 2 personas', nota: 'Con jacuzzi privado' },
       { nombre: 'Suite', capacidad: 'Hasta 5 personas', nota: 'Con jacuzzi privado' }
     ],
-    precioNota: '💡 Los precios cambian según tipo de habitación, cantidad de huéspedes, día, temporada y descuentos, por eso no los mostramos aquí. Consúltalos directamente con Fuga con el botón «Ver precios y reservar».',
+    precioNota: '💡 Los precios cambian según tipo de habitación, cantidad de huéspedes, día, temporada y descuentos, por eso no los mostramos aquí. Las tarifas base de Fuga están calculadas para 2 personas y cada huésped adicional tiene un costo extra. Para confirmar la reserva se paga el 50% del alojamiento. Consulta los precios actualizados con el botón «Ver precios y reservar».',
     habitacionesNota: 'Fuga cuenta con 9 habitaciones en total: 4 Standard, 1 Petit Suite y 4 Suite. Las Suite y Petit Suite tienen jacuzzi privado en la terraza.',
-    amenidadesHabitacion: ['Cama king o configuración según habitación', 'Calefactor', 'Ducha de agua caliente', 'Estación de café', 'Nevera minibar', 'Wi-Fi de alta velocidad', 'Terraza privada', 'Fogata privada', 'Malla de catamarán', 'Vista de 180° al embalse', 'Almohadas duras y blandas', 'Amenities biodegradables'],
-    experiencias: ['Senderos ecológicos entre bosque nativo y frailejones de más de 80 años', 'Fogatas privadas y comunales', 'Jacuzzis privados', 'Masajes bajo reserva', 'Paseos en bicicleta alrededor del embalse', 'Caminatas', 'Juegos de mesa', 'Kayak', 'Paddle board', 'Botes de remo', 'Paseos en lancha', 'Pesca deportiva', 'Siembra de árboles', 'Yoga', 'Actividades personalizadas'],
+    amenidadesHabitacion: ['Cama king o camas sencillas, según tus necesidades', 'Calefactor', 'Ducha de agua caliente en baño privado', 'Estación de café y té', 'Nevera minibar', 'Wi-Fi de alta velocidad en toda la propiedad', 'Terraza privada', 'Fogata privada en la terraza', 'Malla de catamarán', 'Vista de 180° al embalse', 'Almohadas duras y blandas', 'Amenities biodegradables'],
+    experiencias: ['Senderos ecológicos entre bosque nativo y frailejones de más de 80 años', 'Fogatas privadas y comunales', 'Jacuzzis privados (Suite y Petit Suite)', 'Masajes bajo reserva', 'Paseos guiados en bicicleta alrededor del embalse', 'Caminata en el embalse guiada por personal de la CAR', 'Plataforma de yoga al aire libre con vista al embalse', 'Juegos de mesa', 'Juegos de feria: rana, bolirana, mini tejo, dardos, Jenga gigante y futbolín', 'Clases de cocina con el chef', 'Siembra de árboles (Siembra de Vida)', 'Kayak', 'Paddle board', 'Botes de remo', 'Paseos en lancha', 'Pesca deportiva', 'Actividades a la medida'],
     experienciasNota: 'Las actividades náuticas se coordinan mediante operadores aliados del Embalse del Neusa.',
     restaurante: {
-      descripcion: 'El restaurante de Fuga ofrece una cocina de inspiración latinoamericana utilizando productos regionales y de su propia huerta.',
+      descripcion: 'Cocina mestiza con raíces en la tierra, que viaja sin prisa por Latinoamérica y el mundo, siempre cerca de lo que crece en la propia huerta de Fuga. Un plato insignia es el asado de tira, 12 horas a fuego lento.',
       ingredientes: ['Papas nativas', 'Queso Paipa', 'Maíz', 'Hierbas y flores comestibles', 'Verduras de la huerta', 'Ajíes y especias', 'Frutas de temporada', 'Lechugas y hojas verdes'],
-      platos: ['Empanadas paisas con gravy de asado de tira', 'Criollas bravas', 'Papas chorreadas', 'Tacos de trucha', 'Tostada de tira', 'Asado de tira', 'Pollo y esquites', 'Pepper Steak', 'Fuga Burger', 'Arroz al sartén', 'Torta de chocolate', 'Cheesecake de temporada', 'Gofres de pandeyuca con miel del Neusa'],
+      platos: ['Empanadas paisas con gravy de asado de tira', 'Criollas bravas', 'Papas chorreadas', 'Tacos de trucha', 'Tostada de tira', 'Asado de tira', 'Ceviche de chicharrón', 'Croquetas de risotto', 'Sopa de tortilla', 'Pollo y esquites', 'Pepper Steak', 'Fuga Burger', 'Arroz al sartén', 'Torta de chocolate', 'Cheesecake de temporada', 'Gofres de pandeyuca con miel del Neusa'],
       horario: 'Restaurante: todos los días de 8:00 a. m. a 9:00 p. m. · Bar: hasta las 11:00 p. m.'
     },
     eventos: {
-      descripcion: 'Fuga también funciona para eventos corporativos, reuniones de trabajo, celebraciones sociales, matrimonios, cumpleaños, aniversarios, pedidas de mano, despedidas, revelaciones de género, y retiros y actividades de bienestar.',
+      descripcion: 'Fuga funciona para eventos corporativos, reuniones de trabajo, eventos sociales (matrimonios, cumpleaños, aniversarios, pedidas de mano, despedidas, revelaciones de género y celebraciones familiares) y retiros de bienestar. Admite hasta 150 invitados en eventos de día y hasta 30 personas con alojamiento. Las cotizaciones se hacen por WhatsApp.',
       espacios: [
         { nombre: 'Invernadero', capacidad: '15 personas' },
         { nombre: 'Salón de reuniones', capacidad: '60 personas' },
-        { nombre: 'Restaurante', capacidad: '80 personas' },
+        { nombre: 'Restaurante', capacidad: '80 personas (40 en el interior y 40 en la terraza cubierta)' },
         { nombre: 'Plataforma de eventos', capacidad: '150 personas' }
       ],
-      alojamiento: 'Para eventos con alojamiento, las 9 habitaciones permiten alojar hasta 30 personas en camas individuales.'
+      alojamiento: 'Para eventos con alojamiento, las 9 habitaciones permiten alojar hasta 30 personas en camas individuales. También se puede reservar el hotel completo: cierra al público durante tu estadía.'
     },
     sostenibilidad: ['2 hectáreas propias', 'Más de 3.000 plantas sembradas', 'Más de 30 especies de aves registradas', 'Frailejones de más de 80 años', 'Bosque nativo altoandino', 'Huerta propia', 'Productos de proveedores locales', 'Jabones y shampoos biodegradables', 'Compostaje', 'Iluminación LED', 'Sistemas de manejo del agua', 'Reconocimiento como Negocio Verde de la CAR'],
-    embalse: 'El Embalse del Neusa se encuentra aproximadamente a 3.000 msnm y comprende unas 900 hectáreas de agua dentro de un parque natural de aproximadamente 3.700 hectáreas. Fuga indica que el embalse está aproximadamente a 10 minutos caminando desde sus instalaciones.',
+    embalse: 'El Embalse del Neusa se encuentra aproximadamente a 3.000 msnm y despliega unas 900 hectáreas de agua dentro de un parque natural de aproximadamente 3.700 hectáreas. Fue construido en 1952 y hoy es refugio de bosque altoandino y aves silvestres. Fuga indica que el embalse está a unos 10 minutos caminando desde sus instalaciones.',
     petFriendly: {
-      reglas: ['Máximo 2 mascotas por habitación', 'No tiene costo adicional por hospedarlas', 'Deben permanecer supervisadas', 'En zonas techadas deben estar con correa o en guacal', 'En jardines pueden circular sin correa bajo supervisión', 'No pueden subir a camas, sofás o muebles', 'El propietario debe recoger los excrementos', 'Se debe informar que se viaja con mascota al realizar la reserva', 'Se solicita certificado de vacunación vigente'],
-      sancion: 'La política establece sanciones de $120.000 COP para determinados incumplimientos.'
+      reglas: ['Máximo 2 mascotas por habitación, sin costo adicional por hospedarlas', 'Avisar que viajas con mascota al hacer la reserva', 'Traer certificado de vacunación vigente e identificación visible para la mascota', 'No dejarla sola en ningún momento: debe estar siempre bajo supervisión', 'Traer de casa manta, cama o guacal propios (Fuga no entrega insumos para mascotas)', 'Limpiar patas y pelaje antes de entrar a la habitación', 'No pueden subir a camas, sofás ni muebles', 'En el restaurante y áreas techadas deben estar con correa o en guacal', 'En jardines y áreas abiertas pueden circular sin correa, bajo supervisión directa', 'Recoger de inmediato los excrementos', 'No se permiten en la cocina, los baños ni las áreas del personal'],
+      sancion: 'Algunos incumplimientos tienen un cobro de $120.000 COP, que se suma a la factura y se paga en el check-out; los daños se cobran por su valor de reposición. La política completa está en fuga.com.co/politica-mascotas/.'
     },
     infoUtil: {
       checkin: '3:00 p. m.',
@@ -314,17 +323,20 @@ const HOTELS = [
     },
     contactos: [
       { titulo: 'Contacto del hotel', lineas: [
-        { texto: '☎ +57 322 450 3640', href: 'tel:+573224503640' },
-        { texto: '🌐 neusahills.com', href: 'https://www.neusahills.com/' },
-        { texto: '📸 Instagram · @neusahills', href: 'https://www.instagram.com/neusahills/' },
-        { texto: '📘 Facebook · neusahills.glamping', href: 'https://www.facebook.com/neusahills.glamping' }
+        { texto: '☎ +57 304 558 8326', href: 'tel:+573045588326' },
+        { texto: '🌐 fuga.com.co', href: 'https://fuga.com.co/' },
+        { texto: '📸 Instagram · @fugahotel', href: 'https://www.instagram.com/fugahotel/' },
+        { texto: '📘 Facebook · fugahotel', href: 'https://www.facebook.com/fugahotel' }
+      ]},
+      { titulo: 'Cotizar eventos (WhatsApp)', lineas: [
+        { texto: '💬 +57 321 902 3862', href: 'https://wa.me/573219023862' }
       ]}
     ],
     enlaces: {
-      reservar: '',
-      web: 'https://www.neusahills.com/',
+      reservar: 'https://hotels.cloudbeds.com/reservation/4yDR9S',
+      web: 'https://fuga.com.co/',
       whatsapp: '',
-      telefono: '+57 322 450 3640'
+      telefono: '+57 304 558 8326'
     }
   },
   {
