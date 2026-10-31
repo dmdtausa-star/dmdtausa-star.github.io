@@ -1,0 +1,171 @@
+# CONOCIMIENTO OFICIAL DE DMD (Directorio y Mapa Digital de Tausa, Cundinamarca)
+Sitio: https://dmdtausa-star.github.io/ · Fecha de esta versión: 2026-10-30
+
+## Sobre DMD
+DMD significa Directorio y Mapa Digital. Es un proyecto turístico y digital que da a conocer la riqueza de Tausa mediante un mapa virtual con GPS, fotos, videos y contenido con dron. Fue creado por DMD Studio como proyecto de grado 11 del SENA.
+Misión: promover el reconocimiento de los lugares turísticos de Tausa mediante un mapa virtual y una página web que faciliten encontrar información, conocer su historia y descubrir su riqueza cultural, natural e histórica.
+Visión: en 5 años, ser una herramienta de referencia para que habitantes y visitantes ubiquen y conozcan los principales sitios turísticos de Tausa con un mapa moderno, práctico y fácil de usar.
+Valores: Innovación, Identidad, Compromiso, Creatividad y Desarrollo local.
+Objetivos: mantener un mapa virtual GPS de Tausa, dar a conocer los sitios turísticos por la web y redes, crear contenido con fotografía, video y dron, facilitar cómo llegar a cada destino y apoyar a comercios y emprendimientos locales.
+Contacto DMD: +57 311 503 3916 · dmd.tausa@gmail.com
+Contacto Alcaldía Municipal de Tausa: (1) 858 3015 · contactenos@tausa-cundinamarca.gov.co · Carrera 3 # 3-24, Tausa, Cundinamarca
+
+## Cómo usar el sitio
+- Inicio (index.html): carrusel de lugares, botones TAUSA, HOTELES, RESTAURANTES y MAPA, y buscador arriba.
+- Mapa (mapa.html): ubicación en vivo, marcadores de lugares y hoteles; al tocar un marcador se ve foto, descripción y reseñas, y el botón "Cómo llegar" traza la ruta desde donde estás. Sin internet el mapa muestra lo ya visto y dibuja una línea recta al destino.
+- Cada lugar tiene su ficha (lugar.html?p=ID) con historia, actividades, reseñas y compartir con QR; cada hotel tiene la suya (hotel.html?h=ID).
+- Las reseñas son anónimas, de 1 a 5 estrellas.
+- DMD se puede instalar como app desde el navegador (botón "Instalar app", o en iPhone: Compartir > Añadir a pantalla de inicio).
+- La sección Restaurantes aún no tiene contenido publicado.
+
+## Lugares turísticos de Tausa (8)
+
+### Cerro de la Virgen
+- enlace: lugar.html?p=cerro-de-la-virgen · ubicación en el mapa: mapa.html?p=cerro-de-la-virgen · coordenadas: 5.194494, -73.884281
+- resumen: Mirador natural junto al casco urbano de Tausa.
+- historia: Mirador natural ubicado junto al casco urbano de Tausa, tradicionalmente vinculado a la devoción religiosa del municipio. Con el paso del tiempo se habilitó como sendero ecológico, desde donde se observa gran parte del pueblo y de la sabana que lo rodea.
+- cultura: La zona hace parte del territorio que históricamente ocupó el pueblo muisca, presente en buena parte del altiplano cundinamarqués.
+- actividades: Senderismo; Fotografía; Observación panorámica; Turismo religioso
+- prohibiciones: No salirse del sendero marcado; No arrojar basura; No dañar la vegetación del cerro
+- guia: recomendado
+- permiso: no_requerido
+- info: Lleva agua y calzado adecuado — algunos tramos de la subida son exigentes.
+- biodiversidad: animales: Conejo de monte; Comadreja; Fara; Guache; Ratón de campo | aves: Colibríes; Mirla negra; Copetón; Golondrina; Torcaza | plantas: Chilco; Tuno; Retamo; Aliso; Siete cueros
+- fotos: tomadas por Marlon Poveda
+
+### Iglesia principal Santa Maria Magdalena
+- enlace: lugar.html?p=iglesia-principal-santa-maria-magdalena · ubicación en el mapa: mapa.html?p=iglesia-principal-santa-maria-magdalena · coordenadas: 5.195967, -73.885814
+- resumen: Templo religioso del casco urbano de Tausa.
+- historia: Es el templo religioso del casco urbano actual de Tausa, heredero de una larga tradición que en el municipio se remonta a la época colonial. Es uno de los puntos de encuentro más importantes de la comunidad.
+- cultura: La evangelización de la región estuvo profundamente ligada a las comunidades muiscas que habitaban el territorio antes de la llegada española.
+- actividades: Visita religiosa; Fotografía exterior; Turismo histórico; Celebraciones religiosas
+- prohibiciones: Guardar silencio y respeto durante las celebraciones; No ingresar durante actos litúrgicos sin autorización
+- guia: no_requerido
+- permiso: no_requerido
+- info: Consulta los horarios de misa con la parroquia antes de tu visita.
+- biodiversidad: nota: Al ser un lugar urbano, aquí las especies se observan en los alrededores del casco urbano, no dentro de la iglesia. | animales: Fara; Ratón de campo; Murciélagos; Ardillas | aves: Copetón; Mirla; Paloma; Colibríes; Golondrinas | plantas: Eucalipto; Pino; Aliso; Chilco; Retamo
+- fotos: tomadas por Marlon Poveda
+
+### Los Cuascos
+- enlace: lugar.html?p=los-cuascos · ubicación en el mapa: mapa.html?p=los-cuascos · coordenadas: 5.195922, -73.893061
+- resumen: Sendero peatonal recreativo de Tausa Viejo.
+- historia: Sendero peatonal recreativo del municipio, habilitado con iluminación de energía renovable para permitir recorridos seguros incluso en horas de menor luz.
+- cultura: Como gran parte del territorio de Tausa, la zona estuvo históricamente habitada por comunidades muiscas.
+- actividades: Senderismo; Fotografía; Observación del paisaje
+- prohibiciones: No arrojar basura; No apartarse del sendero señalizado
+- guia: recomendado
+- permiso: consultar
+- info: La dificultad y duración exactas del recorrido están por confirmar — consulta con la Alcaldía antes de ir.
+- biodiversidad: animales: Conejo de monte; Comadreja; Fara; Guache; Borugo | aves: Colibríes; Mirla negra; Carpinteros; Torcazas; Copetones | plantas: Chilco; Tuno; Encenillo; Aliso; Uva camarona; Chusque
+- fotos: tomadas por Marlon Poveda
+
+### Templo Doctrinario Tausa Viejo
+- enlace: lugar.html?p=templo-doctrinario-tausa-viejo · ubicación en el mapa: mapa.html?p=templo-doctrinario-tausa-viejo · coordenadas: 5.195194, -73.893144
+- resumen: Sitio histórico y patrimonial del siglo XVI.
+- historia: Uno de los sitios históricos más importantes del municipio. Existen registros de un templo en este sector desde 1594, y el 2 de agosto de 1600 el oidor Luis Henríquez ordenó la construcción de una edificación más duradera. Ha sido objeto de procesos de recuperación patrimonial impulsados por la Gobernación de Cundinamarca.
+- acontecimientos: Construcción original registrada en 1594 · orden de reconstrucción en 1600 · intervenciones recientes de restauración patrimonial.
+- cultura: El templo estuvo directamente relacionado con el proceso de evangelización de las comunidades muiscas que habitaban Tausa Viejo antes de la fundación del actual casco urbano.
+- actividades: Recorrido histórico; Fotografía; Interpretación cultural; Turismo religioso
+- prohibiciones: No tocar ni alterar los elementos arquitectónicos; No ingresar a zonas cerradas o en restauración; No rayar ni escribir sobre las paredes
+- guia: recomendado
+- permiso: consultar
+- info: Por ser un bien patrimonial, el acceso a ciertas zonas puede estar restringido según el estado de las obras de restauración.
+- biodiversidad: nota: En los alrededores del templo se puede encontrar principalmente fauna y vegetación propia de la zona rural. | animales: Conejo de monte; Comadreja; Fara; Guache; Ratón de campo | aves: Mirla negra; Colibríes; Copetón; Torcaza; Golondrina | plantas: Aliso; Chilco; Encenillo; Siete cueros; Retamo
+- fotos: tomadas por Marlon Poveda
+
+### Templo del Alto de Quita
+- enlace: lugar.html?p=templo-del-alto-de-quita · ubicación en el mapa: mapa.html?p=templo-del-alto-de-quita · coordenadas: 5.205669, -73.892617
+- resumen: Templo y mirador en las alturas de Tausa.
+- historia: Templo religioso situado en las alturas de Tausa, integrado en la llamada "Ruta de la Fe", un recorrido que lo conecta con el Cerro de la Virgen.
+- destacado: titulo: 🥾 Ruta de la Fe | texto: Conecta el Cerro de la Virgen con el Alto de Quita: cerca de 6,7 km, un ascenso de unos 353 m y una duración mínima aproximada de dos horas. Una experiencia que combina senderismo, espiritualidad, paisaje e historia.
+- actividades: Senderismo; Turismo espiritual; Fotografía panorámica
+- prohibiciones: No apartarse de la ruta señalizada; No arrojar basura en el camino
+- guia: recomendado
+- permiso: no_requerido
+- biodiversidad: animales: Conejo de monte; Comadreja; Guache; Fara; Borugo | aves: Colibríes; Mirla negra; Carpinteros; Copetón; Torcaza | plantas: Encenillo; Chilco; Tuno; Chusque; Uva camarona
+- fotos: tomadas por William Ramírez
+
+### Mirador Neusa
+- enlace: lugar.html?p=mirador-neusa · ubicación en el mapa: mapa.html?p=mirador-neusa · coordenadas: 5.185258, -73.926
+- resumen: Mirador natural cerca del Embalse del Neusa.
+- historia: Mirador ubicado cerca del Embalse del Neusa, un cuerpo de agua administrado por la CAR entre los municipios de Tausa y Cogua, rodeado de bosque nativo.
+- actividades: Fotografía; Observación de paisaje; Observación de biodiversidad; Caminatas de baja dificultad
+- prohibiciones: No dejar residuos; No alimentar ni perturbar la fauna
+- guia: no_requerido
+- permiso: no_requerido
+- info: Las caminatas cercanas son de baja dificultad, ideales para toda la familia.
+- biodiversidad: nota: Aquí ya estamos en un ecosistema mucho más relacionado con el Embalse y Parque Neusa, donde existe una gran diversidad de fauna y flora. | animales: Borugo; Conejo de monte; Comadreja; Fara; Guache; Lagarto collarejo | aves: Colibrí; Mirla negra; Carpintero; Pava andina; Torcaza; Lechuza; Toche; Picogrueso dorsinegro | plantas: Mortiño; Uva camarona; Encenillo; Chusque; Mano de oso; Romero de páramo; Tuno; Aliso; Chilco; Raque; Puya; Bromelias
+- fotos: tomadas por William Ramírez y Kevin Bello
+
+### Zona de Camping Parque Neusa
+- enlace: lugar.html?p=zona-de-camping-parque-neusa · ubicación en el mapa: mapa.html?p=zona-de-camping-parque-neusa · coordenadas: 5.135742, -73.966061
+- resumen: Zona recreativa del Parque Forestal Embalse del Neusa.
+- historia: Sector del Parque Forestal Embalse del Neusa habilitado para actividades recreativas y de turismo de naturaleza.
+- destacado: titulo: ⚠️ Antes de ir | texto: Las actividades, horarios, zonas habilitadas y condiciones de ingreso pueden cambiar. Consulta previamente con la administración del Parque Forestal Embalse del Neusa.
+- actividades: Camping; Asados en zonas autorizadas; Pesca deportiva; Alquiler de botes; Caminatas; Restaurantes cercanos
+- prohibiciones: No encender fogatas fuera de zonas autorizadas; No arrojar basura; No pescar fuera de las temporadas o zonas permitidas
+- guia: no_requerido
+- permiso: consultar
+- biodiversidad: nota: Es uno de los lugares con más biodiversidad registrada de Tausa: el Parque Neusa documenta cientos de especies, incluyendo aves, mamíferos, reptiles, anfibios y peces, además de vegetación acuática asociada al espejo de agua y sus zonas inundables. | animales: Guache; Comadreja; Conejo de monte; Fara; Borugo; Lagarto collarejo; Cangrejo sabanero | aves: Colibríes; Mirla negra; Carpinteros; Pava andina; Torcaza; Lechuza; Toche; Patos; Tinguas; Zambullidores | plantas: Mortiño; Uva camarona; Encenillo; Chusque; Mano de oso; Tuno; Aliso; Chilco; Raque; Puya; Bromelias; Helecho de agua; Elodea
+- fotos: tomadas por William Ramírez
+
+### Pozos de sal
+- enlace: lugar.html?p=pozos-de-sal · ubicación en el mapa: mapa.html?p=pozos-de-sal · coordenadas: 5.195242, -73.897772
+- resumen: Manantiales de agua salina de valor histórico.
+- historia: Tausa formó parte, junto con Nemocón y Zipaquirá, de una región históricamente salinera. La sal fue un recurso de gran importancia económica y cultural para las comunidades que habitaron este territorio.
+- cultura: Las comunidades muiscas ya explotaban la sal de esta región antes de la llegada española, y este recurso mantuvo su importancia durante buena parte de la historia del municipio.
+- actividades: Interpretación histórica; Fotografía; Turismo cultural; Recorrido por el entorno
+- prohibiciones: No ingresar a zonas no habilitadas; No extraer materiales del sitio
+- guia: recomendado
+- permiso: consultar
+- info: La existencia de un recorrido turístico formal, horarios y condiciones de acceso está por confirmar — consulta previamente.
+- biodiversidad: nota: Por ser un sitio ligado a la actividad salinera y con zonas intervenidas, aquí la lista se enfoca en las especies que pueden encontrarse en sus alrededores. | animales: Conejo de monte; Fara; Comadreja; Guache; Ratón de campo | aves: Copetón; Mirla negra; Colibríes; Torcaza; Golondrina | plantas: Chilco; Aliso; Encenillo; Retamo; Tuno; Pastos nativos
+- fotos: tomadas por Marlon Poveda
+
+## Hoteles (2)
+
+### Fuga Hotel — Embalse del Neusa
+- enlace: hotel.html?h=fuga-hotel-embalse-del-neusa · cómo llegar en el mapa de DMD: mapa.html?h=fuga-hotel-embalse-del-neusa · coordenadas: 5.1695066, -73.9970012
+- resumen: Cabin Retreat frente al Embalse del Neusa: 9 habitaciones, restaurante de temporada y experiencias al aire libre.
+- categoria: Hospedaje · Hotel · Experiencia turística
+- ubicacion: Finca La Victoria, Vereda Llano Grande, Tausa, Cundinamarca.
+- entorno: Embalse del Neusa, aproximadamente a 3.000 msnm.
+- comoLlegar: Desde Bogotá: 54 km desde el peaje del norte. Desde el embarcadero del Parque del Neusa son aproximadamente 6,5 km por la carretera hacia Tausa. Fuga recomienda buscar "Fuga Neusa" en Google Maps o Waze.
+- descripcion: Fuga es un Cabin Retreat ubicado frente al Embalse del Neusa. Su propuesta está enfocada en descansar, desconectarse y reconectar con la naturaleza, rodeado de bosque altoandino, frailejones, montaña y niebla. Cuenta con 9 habitaciones y espacios diseñados para disfrutar del paisaje y la tranquilidad.
+- habitaciones: nombre: Standard | capacidad: Hasta 3 personas; nombre: Petit Suite | capacidad: Hasta 2 personas | nota: Con jacuzzi privado; nombre: Suite | capacidad: Hasta 5 personas | nota: Con jacuzzi privado
+- precioNota: 💡 Los precios cambian según tipo de habitación, cantidad de huéspedes, día, temporada y descuentos, por eso no los mostramos aquí. Las tarifas base de Fuga están calculadas para 2 personas y cada huésped adicional tiene un costo extra. Para confirmar la reserva se paga el 50% del alojamiento. Consulta los precios actualizados con el botón «Ver precios y reservar».
+- habitacionesNota: Fuga cuenta con 9 habitaciones en total: 4 Standard, 1 Petit Suite y 4 Suite. Las Suite y Petit Suite tienen jacuzzi privado en la terraza.
+- amenidadesHabitacion: Cama king o camas sencillas, según tus necesidades; Calefactor; Ducha de agua caliente en baño privado; Estación de café y té; Nevera minibar; Wi-Fi de alta velocidad en toda la propiedad; Terraza privada; Fogata privada en la terraza; Malla de catamarán; Vista de 180° al embalse; Almohadas duras y blandas; Amenities biodegradables
+- experiencias: Senderos ecológicos entre bosque nativo y frailejones de más de 80 años; Fogatas privadas y comunales; Jacuzzis privados (Suite y Petit Suite); Masajes bajo reserva; Paseos guiados en bicicleta alrededor del embalse; Caminata en el embalse guiada por personal de la CAR; Plataforma de yoga al aire libre con vista al embalse; Juegos de mesa; Juegos de feria: rana, bolirana, mini tejo, dardos, Jenga gigante y futbolín; Clases de cocina con el chef; Siembra de árboles (Siembra de Vida); Kayak; Paddle board; Botes de remo; Paseos en lancha; Pesca deportiva; Actividades a la medida
+- experienciasNota: Las actividades náuticas se coordinan mediante operadores aliados del Embalse del Neusa.
+- restaurante: descripcion: Cocina mestiza con raíces en la tierra, que viaja sin prisa por Latinoamérica y el mundo, siempre cerca de lo que crece en la propia huerta de Fuga. Un plato insignia es el asado de tira, 12 horas a fuego lento. | ingredientes: Papas nativas; Queso Paipa; Maíz; Hierbas y flores comestibles; Verduras de la huerta; Ajíes y especias; Frutas de temporada; Lechugas y hojas verdes | platos: Empanadas paisas con gravy de asado de tira; Criollas bravas; Papas chorreadas; Tacos de trucha; Tostada de tira; Asado de tira; Ceviche de chicharrón; Croquetas de risotto; Sopa de tortilla; Pollo y esquites; Pepper Steak; Fuga Burger; Arroz al sartén; Torta de chocolate; Cheesecake de temporada; Gofres de pandeyuca con miel del Neusa | horario: Restaurante: todos los días de 8:00 a. m. a 9:00 p. m. · Bar: hasta las 11:00 p. m.
+- eventos: descripcion: Fuga funciona para eventos corporativos, reuniones de trabajo, eventos sociales (matrimonios, cumpleaños, aniversarios, pedidas de mano, despedidas, revelaciones de género y celebraciones familiares) y retiros de bienestar. Admite hasta 150 invitados en eventos de día y hasta 30 personas con alojamiento. Las cotizaciones se hacen por WhatsApp. | espacios: nombre: Invernadero | capacidad: 15 personas; nombre: Salón de reuniones | capacidad: 60 personas; nombre: Restaurante | capacidad: 80 personas (40 en el interior y 40 en la terraza cubierta); nombre: Plataforma de eventos | capacidad: 150 personas | alojamiento: Para eventos con alojamiento, las 9 habitaciones permiten alojar hasta 30 personas en camas individuales. También se puede reservar el hotel completo: cierra al público durante tu estadía.
+- sostenibilidad: 2 hectáreas propias; Más de 3.000 plantas sembradas; Más de 30 especies de aves registradas; Frailejones de más de 80 años; Bosque nativo altoandino; Huerta propia; Productos de proveedores locales; Jabones y shampoos biodegradables; Compostaje; Iluminación LED; Sistemas de manejo del agua; Reconocimiento como Negocio Verde de la CAR
+- embalse: El Embalse del Neusa se encuentra aproximadamente a 3.000 msnm y despliega unas 900 hectáreas de agua dentro de un parque natural de aproximadamente 3.700 hectáreas. Fue construido en 1952 y hoy es refugio de bosque altoandino y aves silvestres. Fuga indica que el embalse está a unos 10 minutos caminando desde sus instalaciones.
+- petFriendly: reglas: Máximo 2 mascotas por habitación, sin costo adicional por hospedarlas; Avisar que viajas con mascota al hacer la reserva; Traer certificado de vacunación vigente e identificación visible para la mascota; No dejarla sola en ningún momento: debe estar siempre bajo supervisión; Traer de casa manta, cama o guacal propios (Fuga no entrega insumos para mascotas); Limpiar patas y pelaje antes de entrar a la habitación; No pueden subir a camas, sofás ni muebles; En el restaurante y áreas techadas deben estar con correa o en guacal; En jardines y áreas abiertas pueden circular sin correa, bajo supervisión directa; Recoger de inmediato los excrementos; No se permiten en la cocina, los baños ni las áreas del personal | sancion: Algunos incumplimientos tienen un cobro de $120.000 COP, que se suma a la factura y se paga en el check-out; los daños se cobran por su valor de reposición. La política completa está en fuga.com.co/politica-mascotas/.
+- infoUtil: checkin: 3:00 p. m. | checkout: 12:00 p. m. | wifi: Starlink de 500 Mb | parqueadero: Privado y sin costo para huéspedes | mascotas: Sí (ver política Pet Friendly) | altitud: Aproximadamente 3.000 msnm
+- contactos: titulo: Contacto del hotel | lineas: texto: ☎ +57 304 558 8326 | href: tel:+573045588326; texto: 🌐 fuga.com.co | href: https://fuga.com.co/; texto: 📸 Instagram · @fugahotel | href: https://www.instagram.com/fugahotel/; texto: 📘 Facebook · fugahotel | href: https://www.facebook.com/fugahotel; titulo: Cotizar eventos (WhatsApp) | lineas: texto: 💬 +57 321 902 3862 | href: https://wa.me/573219023862
+- enlaces: reservar: https://hotels.cloudbeds.com/reservation/4yDR9S | web: https://fuga.com.co/ | telefono: +57 304 558 8326
+- fotos: tomadas por Fuga
+
+### Neusa Hills Hotel Boutique
+- enlace: hotel.html?h=neusa-hills-hotel-boutique · cómo llegar en el mapa de DMD: mapa.html?h=neusa-hills-hotel-boutique · coordenadas: 5.1445455, -73.9502572
+- resumen: Ecolodge y hotel boutique con cabañas, restaurante y experiencias en Tausa.
+- categoria: Ecolodge · Hotel boutique
+- ubicacion: Vereda Parama Bajo, Finca Neusa Hills Park, Tausa, Cundinamarca, Colombia.
+- entorno: Finca Neusa Hills Park — naturaleza, huerta y vistas al embalse.
+- descripcion: Neusa Hills Hotel Boutique es un establecimiento de alojamiento turístico que ofrece espacios privados para descansar, disfrutar de la naturaleza, compartir experiencias gastronómicas y organizar encuentros empresariales. Su propuesta integra alojamiento en cabañas y habitaciones, restaurante, actividades recreativas y creativas, experiencias para parejas y espacios destinados a eventos.
+- habitaciones: nombre: Adamá | tipo: Cabaña privada | descripcion: Cama Queen, baño con agua caliente, balcón, malla de catamarán y tina. | nota: Tina; nombre: Vento | tipo: Cabaña privada dúplex | descripcion: Cama Queen, sofá cama, balcón, terraza, malla de catamarán y jacuzzi. | nota: Jacuzzi; nombre: Oasis | tipo: Cabaña privada | descripcion: Cama Queen, baño privado, balcón, malla de catamarán y jacuzzi. | nota: Jacuzzi; nombre: Suká | tipo: Habitación privada | descripcion: Cama doble, sofá cama y balcón.; nombre: Bruma | tipo: Cabaña privada | descripcion: Cama doble, baño privado, balcón y malla de catamarán.; nombre: Bosco | tipo: Cabaña privada | descripcion: Cama doble, baño privado y balcón.; nombre: Nube | tipo: Habitación privada · tercer piso de Casa Madre | descripcion: Cama King, televisión, balcón y chimenea.; nombre: Cielo | tipo: Habitación privada · tercer piso de Casa Madre | descripcion: Cama Queen, televisión, balcón y chimenea.; nombre: Quiche | tipo: Cabaña privada | descripcion: Cama doble, baño privado y balcón.
+- habitacionesNota: Según el catálogo, el alojamiento incluye desayuno, bebida caliente de bienvenida y acceso a zonas sociales. Las condiciones pueden variar según la habitación y la tarifa contratada.
+- tarifas: titulo: Tarifas de alojamiento publicadas en el catálogo | columna: Tarifa publicada en el catálogo | items: habitacion: Vento | valor: $1.290.000; habitacion: Oasis | valor: $990.000; habitacion: Adamá | valor: $900.000; habitacion: Suká | valor: $890.000; habitacion: Bruma | valor: $840.000; habitacion: Bosco | valor: $720.000; habitacion: Nube | valor: $700.000; habitacion: Cielo | valor: $690.000; habitacion: Quiche | valor: $680.000 | aviso: Estos valores fueron transcritos del catálogo del establecimiento y no son tarifas confirmadas para hoy. Antes de reservar, confirma directamente con el hotel la vigencia, las fechas, la ocupación, los impuestos y las condiciones.
+- experienciasGrupos: titulo: Experiencias gastronómicas | items: Taller de pizza; Taller de sushi; Preparación de lomo al trapo; Experiencia de coctelería; Taller de amasijos y envueltos; titulo: Experiencias creativas | items: Taller de cerámica; Taller de pintura; Actividad de pintura y siembra de materas; titulo: Naturaleza y bienestar | items: Caminata al embalse; Caminata a la huerta; Cabalgata; Inmersión en hielo; titulo: Experiencias para parejas | items: Cena romántica; The Pleasure Kit; Bed Picnic como complemento del alojamiento
+- experienciasNota: Los precios, las fechas disponibles, los requisitos de participación y las condiciones de cada actividad deben confirmarse directamente con el establecimiento.
+- restaurante: nombre: Tributo Cocina de Origen | descripcion: Tributo Cocina de Origen es la propuesta gastronómica asociada al establecimiento. Su menú presenta preparaciones que combinan ingredientes del campo, referencias a la cocina tradicional y propuestas contemporáneas. | categorias: Desayunos; Entradas; Platos fuertes; Preparaciones con carnes y trucha; Bebidas y otras opciones de la carta | platosTitulo: Preparaciones descritas en el menú | platos: Huevos al gusto; Changua; Pancakes; Amasijos; Empanadas de calentao; Buñuelos de yuca; Ceviches; Carimañolas de trucha | nota: Los platos disponibles, los precios y los horarios de atención deben consultarse en el menú actualizado del restaurante.
+- eventos: descripcion: El hotel ofrece espacios para reuniones, conferencias, talleres, networking, lanzamientos de marca y actividades de integración empresarial. | columna: Detalle | espacios: nombre: Salón Alta Vista | detalle: 68 m² · hasta 70 personas en auditorio; nombre: Salón Terracota | detalle: 70 m² · distintas configuraciones para reuniones; nombre: Zona verde exterior | detalle: Aprox. 560 m²; nombre: Casa Madre y lobby | detalle: Recepción, buffet o cócteles; nombre: Deck Pasarela | detalle: Plataforma con vistas al embalse; nombre: Torre Mirador | detalle: Experiencias privadas; nombre: Zona de talleres | detalle: Actividades privadas | alojamiento: Las capacidades dependen de la distribución y el montaje. Los servicios de alimentación, bebidas, equipos y alojamiento deben cotizarse según las necesidades del evento.
+- embalseTitulo: Naturaleza y entorno
+- embalse: La propuesta turística del establecimiento está relacionada con el descanso, los paisajes naturales y las actividades al aire libre. Las caminatas, las experiencias de huerta, las cabalgatas y los espacios exteriores permiten complementar la estancia con actividades recreativas.
+- datosEstablecimiento: label: Nombre comercial | value: Neusa Hills Hotel Boutique; label: Razón social | value: VERUM & CO S.A.S.; label: NIT | value: 901989333-0; label: Categoría | value: Ecolodge; label: Dirección | value: Vereda Parama Bajo, Finca Neusa Hills Park, Tausa, Cundinamarca; label: Registro Nacional de Turismo | value: RNT 288622
+- datosNota: Datos tomados del certificado de Registro Nacional de Turismo y del catálogo aportados por el establecimiento (certificado expedido el 7 de mayo de 2026, con vencimiento indicado el 31 de marzo de 2027). Verifica la vigencia en la fuente oficial.
+- contactos: titulo: Reservas | lineas: texto: ☎ +57 310 579 1978 | href: tel:+573105791978; texto: ✉ reservas@neusahills.com | href: mailto:reservas@neusahills.com; titulo: Contacto comercial (eventos y empresas) | lineas: texto: Yvonne Andrea Martínez; texto: ☎ +57 322 450 3640 | href: tel:+573224503640; texto: ✉ directorcomercial@neusahills.com | href: mailto:directorcomercial@neusahills.com; titulo: Información general | lineas: texto: ☎ +57 318 696 5983 | href: tel:+573186965983; texto: 🌐 neusahills.com | href: https://www.neusahills.com/
+- aviso: La información de esta ficha se basa en los materiales comerciales y documentales suministrados por el establecimiento. Los precios, servicios, horarios y condiciones están sujetos a confirmación con el establecimiento. La información publicada en DMD tiene fines turísticos e informativos y no sustituye la confirmación directa de una reserva.
+- enlaces: reservar: https://www.neusahills.com/ | web: https://www.neusahills.com/ | telefono: +57 310 579 1978

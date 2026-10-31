@@ -466,6 +466,12 @@ const DMD_CONTACTO = {
 // lo tienes). Se usa en la página de cada lugar para el inicio de sesión
 // del administrador y para guardar/mostrar las fotos que suba. Mientras
 // diga "TU_...", esa función queda desactivada sin romper el resto.
+// ---------- IA del asistente ----------
+// Dirección del Worker de Cloudflare que conecta con la IA (ver worker.js).
+// Mientras esté vacía ('') el asistente funciona en modo local, sin IA.
+// IMPORTANTE: aquí va solo la dirección del Worker. La clave de la IA NUNCA va en este archivo.
+const DMD_AI_ENDPOINT = 'https://dmd-ia.dmd-tausa.workers.dev';
+
 const FIREBASE_CONFIG = {
   apiKey: "AIzaSyBhfvYx2pIzphbyDH4k5uMil5txa_e0b_M",
   authDomain: "dmd-tausa.firebaseapp.com",
