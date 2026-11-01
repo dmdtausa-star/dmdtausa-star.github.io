@@ -469,3 +469,38 @@ body{
 .msg.typing i:nth-child(2){ animation-delay:.15s; }
 .msg.typing i:nth-child(3){ animation-delay:.3s; }
 @keyframes dmdDot{ 0%,80%,100%{ opacity:.25; transform:translateY(0); } 40%{ opacity:1; transform:translateY(-3px); } }
+
+/* =====================================================================
+   TRANSICIONES ENTRE PÁGINAS
+   Al pasar de una página a otra, el contenido se desvanece y la nueva
+   página aparece suave. La barra superior y la burbuja del asistente
+   quedan quietas mientras tanto.
+   Funciona en Chrome, Edge y Safari recientes; en los demás navegadores
+   se usa un fade-in sencillo.
+   ===================================================================== */
+@view-transition{ navigation:auto; }
+
+.site-topbar{ view-transition-name:dmd-barra; }
+#assistantToggle{ view-transition-name:dmd-asistente; }
+
+::view-transition-old(root){
+  animation:dmdSalir .16s ease-in both;
+  mix-blend-mode:normal;
+}
+::view-transition-new(root){
+  animation:dmdEntrar .32s cubic-bezier(.2,.7,.2,1) both;
+  mix-blend-mode:normal;
+}
+@keyframes dmdSalir{ to{ opacity:0; } }
+@keyframes dmdEntrar{ from{ opacity:0; transform:translateY(10px); } }
+
+/* sin transiciones entre páginas: solo un fade-in (sin transform, que rompería los elementos fijos) */
+@supports not (view-transition-name:none){
+  body{ animation:dmdAparecer .35s ease-out backwards; }
+}
+@keyframes dmdAparecer{ from{ opacity:0; } }
+
+@media (prefers-reduced-motion:reduce){
+  @view-transition{ navigation:none; }
+  body{ animation:none !important; }
+}
