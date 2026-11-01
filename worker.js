@@ -78,8 +78,7 @@ function cleanMessages(raw){
   return msgs;
 }
 
-async function askGemini(env, system, msgs){
-  const model = env.MODEL || 'gemini-2.5-flash';
+async function askGemini(env, system, msgs, model){
   const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(model) + ':generateContent', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.API_KEY },
@@ -90,9 +89,34 @@ async function askGemini(env, system, msgs){
     })
   });
   const j = await r.json();
-  if(!r.ok) throw new Error((j.error && j.error.message) || 'Error de Gemini');
+  if(!r.ok){
+    const err = new Error((j.error && j.error.message) || 'Error de Gemini');
+    err.status = r.status;
+    throw err;
+  }
   const parts = (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts) || [];
   return parts.map(function(p){ return p.text || ''; }).join('').trim();
+}
+
+// Gemini a veces responde "alta demanda" (503/429): se reintenta una vez y, si sigue fallando,
+// se prueba con un modelo de respaldo (por defecto el Flash-Lite, más liviano).
+function pausa(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+async function askGeminiWithFallback(env, system, msgs){
+  const modelos = [env.MODEL || 'gemini-flash-latest', env.FALLBACK_MODEL || 'gemini-flash-lite-latest'];
+  let ultimoError;
+  for(let i = 0; i < modelos.length; i++){
+    for(let intento = 0; intento < 2; intento++){
+      try{
+        return await askGemini(env, system, msgs, modelos[i]);
+      }catch(e){
+        ultimoError = e;
+        const pasajero = [429, 500, 503, 504].indexOf(e.status) !== -1;
+        if(!pasajero) break;            // error "de verdad" (modelo inexistente, clave...): pasa al siguiente modelo
+        await pausa(700);               // error pasajero: un reintento con el mismo modelo
+      }
+    }
+  }
+  throw ultimoError;
 }
 
 async function askAnthropic(env, system, msgs){
@@ -128,11 +152,13 @@ export default {
     const system = PERSONA + '\n\n=== CONOCIMIENTO OFICIAL DE DMD ===\n' + (knowledge || '(no disponible en este momento: si preguntan por lugares u hoteles de Tausa, indica que no tienes los datos a mano y sugiere abrir las fichas del sitio)');
 
     try{
-      const reply = (env.PROVIDER === 'anthropic') ? await askAnthropic(env, system, msgs) : await askGemini(env, system, msgs);
+      const reply = (env.PROVIDER === 'anthropic') ? await askAnthropic(env, system, msgs) : await askGeminiWithFallback(env, system, msgs);
       if(!reply) return json({ error: 'Respuesta vacía' }, 502, cors);
       return json({ reply: reply }, 200, cors);
     }catch(e){
-      return json({ error: 'La IA no está disponible ahora' }, 502, cors);
+      // se registra el motivo en los logs de Cloudflare y se devuelve un detalle corto (nunca incluye la clave)
+      console.error('Error de la IA:', e && e.message);
+      return json({ error: 'La IA no está disponible ahora', detail: String((e && e.message) || '').slice(0, 200) }, 502, cors);
     }
   }
 };
