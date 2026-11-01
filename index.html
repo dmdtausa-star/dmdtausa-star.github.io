@@ -370,17 +370,13 @@
   </div>
 
   <div class="section-title">Descubre nuestros lugares</div>
-  <div class="home-grid" style="margin-top:16px;">
-    <div id="placeCardsWrap" style="display:contents;"></div>
-  </div>
+  <div id="placesOrbit"></div>
 </div>
 
 
 <div class="category-panel" id="panel-hoteles">
   <div class="section-title">Dónde hospedarte</div>
-  <div class="home-grid" style="margin-top:16px;">
-    <div id="hotelCardsWrap" style="display:contents;"></div>
-  </div>
+  <div id="hotelsOrbit"></div>
   <p class="tausa-sub" style="margin:6px auto 30px auto;">Muy pronto más hoteles y hospedajes de Tausa en DMD.</p>
 </div>
 
@@ -432,6 +428,7 @@
 
 <script src="site-data.js"></script>
 <script src="topsearch.js"></script>
+<script src="orbit.js"></script>
 <script>
   // ---------- selector de categorías: Tausa / Hoteles / Restaurantes ----------
   // (Mapa es un link directo a mapa.html, no abre panel)
@@ -454,34 +451,21 @@
     });
   })();
 
-  // ---------- tarjetas de hoteles (se generan desde HOTELS en site-data.js) ----------
-  const hotelWrap = document.getElementById('hotelCardsWrap');
-  HOTELS.forEach(function(h){
-    const a = document.createElement('a');
-    a.className = 'place-card';
-    a.href = 'hotel.html?h=' + h.slug;
-    a.innerHTML =
-      '<span class="icon"></span>' +
-      '<span class="text">' +
-        '<span class="name">' + h.name + '</span>' +
-        '<span class="desc">' + (h.entorno || '') + '</span>' +
-      '</span>';
-    hotelWrap.appendChild(a);
-  });
+  // ---------- carruseles orbitales de hoteles y lugares (se generan desde site-data.js) ----------
+  (function(){
+    const hoteles = HOTELS.map(function(h){
+      return { name: h.name, desc: h.entorno || h.desc || '', href: 'hotel.html?h=' + h.slug, cta: 'Ver hotel →' };
+    });
+    const proximamente = ['Muy pronto', 'Próximamente', 'Muy pronto'];
+    for(let i = 0; hoteles.length < 5; i++){
+      hoteles.push({ name: proximamente[i % proximamente.length], desc: 'Más hoteles y hospedajes de Tausa llegarán muy pronto a DMD.', ghost: true });
+    }
+    DMDOrbit.mount(document.getElementById('hotelsOrbit'), hoteles);
 
-  const wrap = document.getElementById('placeCardsWrap');
-  PLACES.forEach(function(place){
-    const a = document.createElement('a');
-    a.className = 'place-card';
-    a.href = 'lugar.html?p=' + place.slug;
-    a.innerHTML =
-      '<span class="icon"></span>' +
-      '<span class="text">' +
-        '<span class="name">' + place.name + '</span>' +
-        '<span class="desc">' + (place.desc || '') + '</span>' +
-      '</span>';
-    wrap.appendChild(a);
-  });
+    DMDOrbit.mount(document.getElementById('placesOrbit'), PLACES.map(function(p){
+      return { name: p.name, desc: p.desc || '', href: 'lugar.html?p=' + p.slug, cta: 'Ver lugar →' };
+    }));
+  })();
 
   // =====================================================================
   //  CARRUSEL DEL HERO — rota solo cada 4.5s entre lugares que tengan foto.

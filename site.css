@@ -483,16 +483,18 @@ body{
 .site-topbar{ view-transition-name:dmd-barra; }
 #assistantToggle{ view-transition-name:dmd-asistente; }
 
+/* la página anterior se queda quieta y opaca debajo; la nueva aparece encima suavemente
+   (así nunca hay un instante en blanco entre una página y otra) */
 ::view-transition-old(root){
-  animation:dmdSalir .16s ease-in both;
+  animation:dmdQuedar .4s linear both;
   mix-blend-mode:normal;
 }
 ::view-transition-new(root){
-  animation:dmdEntrar .32s cubic-bezier(.2,.7,.2,1) both;
+  animation:dmdEntrar .4s cubic-bezier(.2,.7,.2,1) both;
   mix-blend-mode:normal;
 }
-@keyframes dmdSalir{ to{ opacity:0; } }
-@keyframes dmdEntrar{ from{ opacity:0; transform:translateY(10px); } }
+@keyframes dmdQuedar{ from{ opacity:1; } to{ opacity:1; } }
+@keyframes dmdEntrar{ from{ opacity:0; transform:translateY(14px); } to{ opacity:1; transform:none; } }
 
 /* sin transiciones entre páginas: solo un fade-in (sin transform, que rompería los elementos fijos) */
 @supports not (view-transition-name:none){
@@ -503,4 +505,105 @@ body{
 @media (prefers-reduced-motion:reduce){
   @view-transition{ navigation:none; }
   body{ animation:none !important; }
+}
+
+/* =====================================================================
+   CARRUSEL ORBITAL — botones de lugares y hoteles (orbit.js)
+   ===================================================================== */
+.orbit{
+  margin:18px 0 30px 0;
+  border-radius:22px;
+  padding:14px 0 22px 0;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(110% 80% at 12% 0%, rgba(0,194,168,0.22), transparent 55%),
+    radial-gradient(110% 85% at 92% 100%, rgba(179,136,255,0.26), transparent 55%),
+    #0B1622;
+  box-shadow:0 18px 44px rgba(11,22,34,0.28);
+}
+.orbit-stage{
+  position:relative;
+  width:100%;
+  perspective:900px;
+  overflow:hidden;
+  touch-action:pan-y;
+  user-select:none;
+  -webkit-user-select:none;
+  cursor:grab;
+}
+.orbit-stage:active{ cursor:grabbing; }
+.orbit-path{
+  position:absolute; left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  border:1px dashed rgba(255,255,255,0.13);
+  border-radius:50%;
+  pointer-events:none;
+}
+.orbit-item{
+  position:absolute; left:50%; top:50%;
+  width:var(--w,176px);
+  display:flex; align-items:center; gap:9px;
+  padding:11px 14px;
+  border-radius:14px;
+  background:rgba(16,29,43,0.82);
+  border:1.5px solid var(--c);
+  color:#fff;
+  text-decoration:none;
+  text-align:left;
+  box-shadow:0 0 14px var(--glow2), inset 0 0 12px var(--glow2);
+  will-change:transform, opacity;
+  -webkit-tap-highlight-color:transparent;
+  transition:box-shadow .3s ease, background .3s ease;
+}
+.orbit-item.is-front{
+  background:rgba(20,36,52,0.94);
+  box-shadow:0 0 26px var(--glow), inset 0 0 16px var(--glow2);
+}
+.orbit-item.ghost{ border-style:dashed; color:rgba(255,255,255,0.65); pointer-events:none; }
+.orbit-dot{
+  width:9px; height:9px; border-radius:50%; flex:0 0 auto;
+  background:var(--c);
+  box-shadow:0 0 10px var(--c);
+}
+.orbit-name{
+  font-weight:700; font-size:14px; line-height:1.25; letter-spacing:0.2px;
+  word-break:break-word;
+}
+.orbit-arrow{
+  position:absolute; bottom:60px;
+  width:38px; height:38px; border-radius:50%;
+  border:1px solid rgba(255,255,255,0.25);
+  background:rgba(11,22,34,0.65);
+  color:#fff; font-size:20px; line-height:1; cursor:pointer;
+  z-index:200;
+  display:flex; align-items:center; justify-content:center;
+  padding:0 0 3px 0;
+}
+.orbit-arrow:hover{ border-color:var(--accent); color:var(--accent); }
+.orbit-arrow.prev{ left:max(14px, calc(50% - 190px)); }
+.orbit-arrow.next{ right:max(14px, calc(50% - 190px)); }
+.orbit-caption{
+  text-align:center; color:#fff;
+  padding:4px 22px 0 22px;
+  min-height:128px;
+  transition:opacity .15s ease;
+}
+.orbit-caption.swap{ opacity:0; }
+.orbit-cap-name{ font-size:17px; font-weight:800; letter-spacing:0.2px; }
+.orbit-cap-desc{ font-size:13px; color:#A9BCCD; line-height:1.55; max-width:520px; margin:6px auto 0 auto; }
+.orbit-cap-btn{
+  display:inline-block; margin-top:12px;
+  background:var(--accent); color:#04211C;
+  font-weight:700; font-size:13px;
+  padding:9px 20px; border-radius:999px; text-decoration:none;
+}
+.orbit-cap-btn:hover{ filter:brightness(1.08); }
+.orbit-hint{ margin-top:12px; font-size:11px; color:#6E8397; letter-spacing:0.3px; }
+@media (max-width:520px){
+  .orbit-item{ padding:9px 10px; gap:7px; }
+  .orbit-name{ font-size:12px; }
+  .orbit-arrow{ width:34px; height:34px; }
+  .orbit-arrow.prev{ left:14px; }
+  .orbit-arrow.next{ right:14px; }
 }
