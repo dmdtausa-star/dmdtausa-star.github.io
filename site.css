@@ -535,7 +535,11 @@ body{
   width:var(--w,214px);
   min-height:var(--h,86px);
   display:flex; flex-direction:column; justify-content:center; gap:7px;
+<<<<<<< HEAD
   padding:16px 18px;
+=======
+  padding:15px 18px;
+>>>>>>> aeced86fc8c2ec76e6e50d07f92e89f498f136fd
   border-radius:20px;
   background:linear-gradient(160deg, #FFFFFF 40%, var(--tint) 170%);
   border:1.5px solid var(--edge);
@@ -559,7 +563,17 @@ body{
   box-shadow:0 0 0 4px var(--tint);
 }
 .orbit-name{ font-weight:800; font-size:16px; line-height:1.2; letter-spacing:0.1px; word-break:break-word; color:#022D5A; }
+<<<<<<< HEAD
 .orbit-item:hover{ border-color:var(--c); box-shadow:0 16px 36px var(--shadow), 0 2px 8px rgba(2,45,90,0.08); }
+=======
+.orbit-cta{
+  font-size:12.5px; font-weight:700; color:var(--cd);
+  padding-left:20px;
+  opacity:0; transform:translateY(3px);
+  transition:opacity .3s ease, transform .3s ease;
+}
+.orbit-item.is-front .orbit-cta{ opacity:1; transform:none; }
+>>>>>>> aeced86fc8c2ec76e6e50d07f92e89f498f136fd
 .orbit-item.ghost{
   border-style:dashed; border-color:#C9D3DD;
   background:#F8FAFC; box-shadow:none;
@@ -573,4 +587,8 @@ body{
 @media (max-width:560px){
   .orbit-item{ padding:12px 13px; gap:6px; border-radius:18px; }
   .orbit-name{ font-size:14px; }
+<<<<<<< HEAD
+=======
+  .orbit-cta{ font-size:12px; padding-left:18px; }
+>>>>>>> aeced86fc8c2ec76e6e50d07f92e89f498f136fd
 }
