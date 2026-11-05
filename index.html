@@ -456,18 +456,43 @@
   })();
 
   // ---------- carruseles orbitales de hoteles y lugares (se generan desde site-data.js) ----------
+  // Si orbit.js no cargara por cualquier motivo, se muestran tarjetas sencillas: nada de la página se rompe.
   (function(){
+    function listaSencilla(contenedor, items){
+      if(!contenedor) return;
+      contenedor.innerHTML = '';
+      contenedor.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0 26px 0;';
+      items.forEach(function(it){
+        if(!it.href) return;
+        const a = document.createElement('a');
+        a.href = it.href;
+        a.textContent = it.name;
+        a.style.cssText = 'display:block;padding:16px 18px;border:1.5px solid #D5E3D0;border-radius:16px;color:#022D5A;font-weight:800;text-decoration:none;background:#fff;';
+        contenedor.appendChild(a);
+      });
+    }
+    function montar(id, items){
+      const el = document.getElementById(id);
+      try{
+        if(typeof DMDOrbit === 'undefined') throw new Error('orbit.js no cargó');
+        DMDOrbit.mount(el, items);
+      }catch(err){
+        console.warn('Carrusel orbital no disponible, se usa la lista sencilla:', err);
+        listaSencilla(el, items);
+      }
+    }
+
     const hoteles = HOTELS.map(function(h){
-      return { name: h.name, desc: h.entorno || h.desc || '', href: 'hotel.html?h=' + h.slug, cta: 'Ver hotel →' };
+      return { name: h.name, href: 'hotel.html?h=' + h.slug };
     });
     const proximamente = ['Muy pronto', 'Próximamente', 'Muy pronto'];
+    const reales = hoteles.length;
     for(let i = 0; hoteles.length < 5; i++){
-      hoteles.push({ name: proximamente[i % proximamente.length], desc: 'Más hoteles y hospedajes de Tausa llegarán muy pronto a DMD.', ghost: true });
+      hoteles.push({ name: proximamente[i % proximamente.length], ghost: true });
     }
-    DMDOrbit.mount(document.getElementById('hotelsOrbit'), hoteles);
-
-    DMDOrbit.mount(document.getElementById('placesOrbit'), PLACES.map(function(p){
-      return { name: p.name, desc: p.desc || '', href: 'lugar.html?p=' + p.slug, cta: 'Ver lugar →' };
+    montar('hotelsOrbit', hoteles);
+    montar('placesOrbit', PLACES.map(function(p){
+      return { name: p.name, href: 'lugar.html?p=' + p.slug };
     }));
   })();
 

@@ -8,21 +8,12 @@
 //     deslizar. Si deslizas a la izquierda o a la derecha, sigue girando hacia
 //     ese lado.
 //   - Arrastrar con el dedo o el mouse: la tarjeta sigue al dedo.
-<<<<<<< HEAD
 //   - Rueda del mouse o dos dedos en el trackpad: gira con ellos y la página
 //     NO se mueve mientras el mouse está sobre el carrusel (si la página ya
 //     venía haciendo scroll, ese scroll sigue de largo).
 //   - Un clic (o un toque en el celular) sobre cualquier tarjeta abre su ficha.
 //
 //  Uso:  DMDOrbit.mount(elemento, [ { name, href, ghost } ... ]);
-=======
-//   - Rueda del mouse o dos dedos en el trackpad: gira con ellos (la página
-//     sigue haciendo scroll normal con la rueda vertical).
-//   - Tocar una tarjeta que no está al frente la trae al frente; tocar la del
-//     frente abre su ficha.
-//
-//  Uso:  DMDOrbit.mount(elemento, [ { name, href, cta, ghost } ... ]);
->>>>>>> aeced86fc8c2ec76e6e50d07f92e89f498f136fd
 //   - ghost:true → tarjeta decorativa ("Muy pronto"), sin enlace.
 //  Colores: solo los del logo de DMD (azul marino, verde y verde oscuro).
 // =====================================================================
@@ -64,10 +55,6 @@
       var name = make('span', 'orbit-name'); name.textContent = it.name;
       top.appendChild(name);
       node.appendChild(top);
-<<<<<<< HEAD
-=======
-      if(it.href){ var cta = make('span', 'orbit-cta'); cta.textContent = it.cta || 'Ver más →'; node.appendChild(cta); }
->>>>>>> aeced86fc8c2ec76e6e50d07f92e89f498f136fd
       stage.appendChild(node);
       return node;
     });
@@ -80,11 +67,7 @@
       if(!W) return;
       var small = W < 560;
       var cardW = small ? 150 : 214;
-<<<<<<< HEAD
       var cardH = small ? 64 : 70;
-=======
-      var cardH = small ? 78 : 86;
->>>>>>> aeced86fc8c2ec76e6e50d07f92e89f498f136fd
       R = small ? W * 0.62 : Math.min(W * 0.46, 450);     // órbita ancha: las tarjetas quedan bien separadas y hacia los lados
       Y = small ? 26 : 30;                                // órbita casi plana: se ve menos como una "rueda"
       stage.style.height = Math.round(2 * Y + cardH * 1.15 + 56) + 'px';
@@ -184,17 +167,10 @@
       var horizontal = Math.abs(dx) > Math.abs(dy);
       var d = horizontal ? dx : dy;
       if(!d) return;
-<<<<<<< HEAD
       e.preventDefault();                                // la página no se mueve: solo gira el carrusel
       tween = null; idleUntil = 0;
       vel = clamp(vel - d * 1.25, -420, 420);
       dir = (-d) > 0 ? 1 : -1;                           // sigue hacia el lado al que lo empujaste
-=======
-      tween = null; idleUntil = 0;
-      vel = clamp(vel - d * 1.25, -420, 420);
-      dir = (-d) > 0 ? 1 : -1;                           // sigue hacia el lado al que lo empujaste
-      if(horizontal) e.preventDefault();                 // evita el gesto "atrás/adelante" del navegador
->>>>>>> aeced86fc8c2ec76e6e50d07f92e89f498f136fd
     }, { passive: false });
 
     // ---------- clic o toque: abre la ficha (un arrastre no cuenta como clic) ----------
@@ -203,18 +179,7 @@
     }, true);
     nodes.forEach(function(nd, i){
       if(!items[i].href) return;
-<<<<<<< HEAD
       nd.addEventListener('focus', function(){                                   // con el teclado, la tarjeta enfocada pasa al frente
-=======
-      nd.addEventListener('click', function(e){
-        var th = angleOf(i);
-        if(Math.abs(th) > 22){          // no está al frente: la traemos al frente
-          e.preventDefault();
-          go(rot - th, 2200);
-        }                               // si ya está al frente, el enlace abre su ficha
-      });
-      nd.addEventListener('focus', function(){                                   // con el teclado también
->>>>>>> aeced86fc8c2ec76e6e50d07f92e89f498f136fd
         if(dragging) return;
         try{ if(!nd.matches(':focus-visible')) return; }catch(e){}               // el clic del mouse no cuenta
         go(rot - angleOf(i), 1200);
