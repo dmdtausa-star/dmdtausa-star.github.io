@@ -33,7 +33,11 @@
     min-height:440px;
     overflow:hidden;
     background:linear-gradient(160deg, #2C6CA6, #1F4E80);
+
+    touch-action:pan-y;            /* el deslizado horizontal es del carrusel; el vertical sigue moviendo la página */
+    user-select:none; -webkit-user-select:none;
   }
+  .hero-slider.is-link{ cursor:pointer; }
   .hero-slide{
     position:absolute; inset:0;
     background-size:cover;
@@ -513,7 +517,9 @@
         heroTitle.innerHTML = 'ENCUENTRA, <span class="accent">EXPLORA</span> Y DISFRUTA';
         heroDesc.textContent = 'DMD — Tu guía digital para descubrir Tausa.';
         heroBtn.style.display = 'none';
+        heroSlider.classList.remove('is-link');
       } else {
+        heroSlider.classList.add('is-link');
         heroTag.textContent = '📍 ' + s.name;
         heroTitle.textContent = s.name.toUpperCase();
         heroDesc.textContent = s.desc || '';
@@ -541,27 +547,33 @@
       }
     }
 
-    // ---------- deslizar con el dedo (swipe) para cambiar de foto ----------
+    // ---------- deslizar (dedo o mouse) para cambiar de foto, y un clic para abrir el lugar ----------
     (function(){
-      let touchStartX = 0;
-      let touchDeltaX = 0;
-      const SWIPE_THRESHOLD = 40; // px mínimos para contar como deslizado
+      const SWIPE_THRESHOLD = 40;   // px mínimos para contar como deslizado
+      const TAP_MAX_MOVE = 10;      // si se movió más que esto, no es un clic
+      const TAP_MAX_TIME = 600;     // un clic es rápido; mantener presionado no cuenta
+      let tracking = false, startX = 0, startY = 0, startT = 0, lastSwipe = 0;
 
-      heroSlider.addEventListener('touchstart', function(e){
-        touchStartX = e.touches[0].clientX;
-        touchDeltaX = 0;
-      }, { passive: true });
-
-      heroSlider.addEventListener('touchmove', function(e){
-        touchDeltaX = e.touches[0].clientX - touchStartX;
-      }, { passive: true });
-
-      heroSlider.addEventListener('touchend', function(){
-        if(heroSlides.length < 2) return;
-        if(touchDeltaX <= -SWIPE_THRESHOLD){
-          goToSlide((heroIndex + 1) % heroSlides.length); // deslizó a la izquierda -> siguiente
-        } else if(touchDeltaX >= SWIPE_THRESHOLD){
-          goToSlide((heroIndex - 1 + heroSlides.length) % heroSlides.length); // deslizó a la derecha -> anterior
+      heroSlider.addEventListener('pointerdown', function(e){
+        if(e.pointerType === 'mouse' && e.button !== 0) return;
+        if(e.target.closest('a, .hero-dot')) return;   // el botón y los puntitos funcionan por su cuenta
+        tracking = true; startX = e.clientX; startY = e.clientY; startT = Date.now();
+      });
+      heroSlider.addEventListener('pointercancel', function(){ tracking = false; });
+      heroSlider.addEventListener('pointerup', function(e){
+        if(!tracking) return;
+        tracking = false;
+        const dx = e.clientX - startX, dy = e.clientY - startY;
+        if(Math.abs(dx) >= SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)){
+          if(heroSlides.length > 1){
+            lastSwipe = Date.now();
+            goToSlide(dx < 0 ? (heroIndex + 1) % heroSlides.length                      // izquierda -> siguiente
+                             : (heroIndex - 1 + heroSlides.length) % heroSlides.length); // derecha -> anterior
+          }
+        } else if(Math.abs(dx) < TAP_MAX_MOVE && Math.abs(dy) < TAP_MAX_MOVE &&
+                  Date.now() - startT < TAP_MAX_TIME && Date.now() - lastSwipe > 500){
+          const s = heroSlides[heroIndex];
+          if(!s.intro) window.location.href = 'lugar.html?p=' + s.slug;   // un clic o toque abre el lugar
         }
       });
     })();

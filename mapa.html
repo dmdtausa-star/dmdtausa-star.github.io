@@ -730,11 +730,18 @@
     walking: { host:'https://routing.openstreetmap.de/routed-foot', profile:'foot'     },
     cycling: { host:'https://routing.openstreetmap.de/routed-bike', profile:'bike'     }
   };
+  // entre las rutas que devuelve el servicio, elige la MÁS CORTA en distancia
+  // (descartando las que demoren mucho más que la más rápida, para no mandar a nadie por un camino imposible)
+  function pickShortestRoute(routes){
+    const fastest = routes.reduce(function(a, b){ return b.duration < a.duration ? b : a; });
+    const reasonable = routes.filter(function(r){ return r.duration <= fastest.duration * 1.5; });
+    return reasonable.reduce(function(a, b){ return b.distance < a.distance ? b : a; });
+  }
   function drawRoute(){
     if(!myPos || !destMarker) return;
     const d = destMarker.getLatLng();
     const cfg = OSRM_HOSTS[mode] || OSRM_HOSTS.driving;
-    const url = cfg.host + '/route/v1/' + cfg.profile + '/' + myPos.lng + ',' + myPos.lat + ';' + d.lng + ',' + d.lat + '?overview=full&geometries=geojson';
+    const url = cfg.host + '/route/v1/' + cfg.profile + '/' + myPos.lng + ',' + myPos.lat + ';' + d.lng + ',' + d.lat + '?overview=full&geometries=geojson&alternatives=3';
 
     distVal.textContent = '…'; timeVal.textContent = '…';
 
@@ -750,7 +757,7 @@
         }
         return;
       }
-      const route = data.routes[0];
+      const route = pickShortestRoute(data.routes);
       const coords = route.geometry.coordinates.map(c=>[c[1], c[0]]);
       if(routeLine){ map.removeLayer(routeLine); }
       routeLine = L.polyline(coords, { color: getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(), weight:5, opacity:0.9 }).addTo(map);

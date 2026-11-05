@@ -11,9 +11,9 @@
 //      y nunca se guarda.
 //
 //  Cada vez que cambies el sitio y quieras que la app reciba la actualización,
-//  sube el número de CACHE_NAME (por ejemplo de 'dmd-v5' a 'dmd-v6').
+//  sube el número de CACHE_NAME (por ejemplo de 'dmd-v5' a 'dmd-v7').
 // =====================================================================
-const CACHE_NAME = 'dmd-v5';
+const CACHE_NAME = 'dmd-v7';
 const TILE_CACHE = 'dmd-tiles-v1';
 const MAX_TILES = 1500;
 
@@ -31,6 +31,7 @@ const CORE_FILES = [
   './reviews.js',
   './install.js',
   './stats.js',
+  './orbit.js',
   './manifest.json',
   './logo-dmd.png',
   './icons/icon-192.png',
